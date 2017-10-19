@@ -55,7 +55,7 @@ def add_vim_powerline():
                 '\nset number'
                 '\nset mouse=a'
     )
-    with open("~/.vimrc","a") as fobj:
+    with open("/root/.vimrc","a") as fobj:
         fobj.write(content)
 
 
