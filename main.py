@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 '''This is to install basic software after fresh installation of fedora'''
+
+
 import os
 
 def update():
@@ -35,6 +37,13 @@ def install_spotify():
     os.system("dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo")
     os.system("dnf install spotify-client -y")
 
+def add_powerline():
+    os.system("dnf install powerline powerline-fonts")
+    content="\nif [ -f `which powerline-daemon` ]; then \n  powerline-daemon -q \n  POWERLINE_BASH_CONTINUATION=1 \n  POWERLINE_BASH_SELECT=1 \n   . /usr/share/powerline/bash/powerline.sh \n fi"
+    file=open("~/.bashrc","a")
+    file.write(content)
+
+
 if __name__ == '__main__':
     update()
     set_hostname()
@@ -43,3 +52,4 @@ if __name__ == '__main__':
     install_chrome()
     install_java_plugins()
     install_spotify()
+    add_powerline()
