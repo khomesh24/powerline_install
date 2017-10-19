@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 '''This is to install basic software after fresh installation of fedora'''
 import os
 
@@ -13,8 +15,15 @@ def set_hostname():
     if (input("want to change hostname [y/n]: ") == 'y' ):
         os.system("systemctl set-hostname \""+str(input("enter hostname: "))+"\"")
 
+def add_tweak():
+    os.system("dnf install gnome-tweak-tool")
 
+def add_rpmfusion():
+    os.system("rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-26.noarch.rpm")
 
 if __name__ == '__main__':
     print("main")
-    set_hostname()
+    #update()
+    #set_hostname()
+    #add_tweak()
+    add_rpmfusion()
