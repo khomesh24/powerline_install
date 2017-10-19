@@ -5,7 +5,7 @@ import os
 
 def update():
     print("system updating")
-    #os.system("dnf update")
+    os.system("dnf update")
     print("system updated")
 
 def set_hostname():
@@ -21,9 +21,21 @@ def add_tweak():
 def add_rpmfusion():
     os.system("rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-26.noarch.rpm")
 
+def install_chrome():
+    chrome_repo = open("/etc/dnf.repos.d/google-chrome.repo","w")
+    content="[google-chrome] \nname=google-chrome - \$basearch \nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch \nenabled=1 \ngpgcheck=1 \ngpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub"
+    chrome_repo.write(content)
+    print("Enable Google DNF repo")
+    os.system("dnf install google-chrome-stable")
+
+def install_java_plugins():
+    os.system("# dnf install java-openjdk icedtea-web")
+
 if __name__ == '__main__':
     print("main")
     #update()
     #set_hostname()
     #add_tweak()
-    add_rpmfusion()
+    #add_rpmfusion()
+    #install_chrome()
+    install_java_plugins()
