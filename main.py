@@ -7,6 +7,7 @@ import os
 
 class get_started:
     def __init__(self):
+        print("Hold tight, it might take some time")
         self.update()
         self.set_hostname()
         self.add_tweak()
@@ -72,4 +73,4 @@ class get_started:
 
 
 if __name__ == '__main__':
-    get_started
+    get_started()
