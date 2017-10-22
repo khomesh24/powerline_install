@@ -17,26 +17,30 @@ class get_started:
         self.install_spotify()
         self.add_powerline()
         self.add_vim_powerline()
+        self.install_docker()
 
     def update(self):
-        print("system updating")
+        print("system updating ......")
         os.system("dnf update -yq")
         print("system updated")
 
     def set_hostname(self):
-        print("current host name is : ")
+        print("Setting up Hostname \ncurrent host name is : ")
         os.system("hostname")
         print()
         if (input("want to change hostname [y/n]: ") == 'y' ):
             os.system("systemctl set-hostname \""+str(input("enter hostname: "))+"\"")
 
     def add_tweak(self):
+        print("Installing Gnome-tweak tool ......")
         os.system("dnf install gnome-tweak-tool -y")
 
     def add_rpmfusion(self):
+        print("Adding rpmFusion ......")
         os.system("rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-26.noarch.rpm")
 
     def install_chrome(self):
+        print("Installing google-chrome ......")
         chrome_repo = open("/etc/dnf.repos.d/google-chrome.repo","w")
         content="[google-chrome] \nname=google-chrome - \$basearch \nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch \nenabled=1 \ngpgcheck=1 \ngpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub"
         chrome_repo.write(content)
@@ -44,19 +48,23 @@ class get_started:
         os.system("dnf install google-chrome-stable -y")
 
     def install_java_plugins(self):
+        print("Installing java packages")
         os.system("# dnf install java-openjdk icedtea-web -y")
 
     def install_spotify(self):
+        print("Installing Spotify ......")
         os.system("dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo")
         os.system("dnf install spotify-client -y")
 
     def add_powerline(self):
+        print("Adding powerLine to gnome-terminal ......")
         os.system("dnf install powerline powerline-fonts")
         content="\nif [ -f `which powerline-daemon` ]; then \n  powerline-daemon -q \n  POWERLINE_BASH_CONTINUATION=1 \n  POWERLINE_BASH_SELECT=1 \n   . /usr/share/powerline/bash/powerline.sh \n fi"
         file=open("/root/.bashrc","a")
         file.write(content)
 
     def add_vim_powerline(self):
+        print("Adding powerLine to vim ......")
         os.system("dnf install vim-powerline")
         content = ( "\npython3 from powerline.vim import setup as powerline_setup"
                     "\npython3 powerline_setup()"
@@ -70,6 +78,10 @@ class get_started:
         )
         with open("/root/.vimrc","a") as fobj:
             fobj.write(content)
+
+    def install_docker(self):
+        print("Installing Docker ......")
+        os.system("rpm -ivh https://download.docker.com/linux/fedora/26/x86_64/stable/Packages/docker-ce-17.09.0.ce-1.fc26.x86_64.rpm")
 
 
 if __name__ == '__main__':
