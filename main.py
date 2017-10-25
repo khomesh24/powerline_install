@@ -7,7 +7,7 @@ import os
 
 class get_started:
     def __init__(self):
-        print("Hold tight, it might take some time")
+        print("Hold tight, it may take some time!")
         self.update()
         self.set_hostname()
         self.add_tweak()
@@ -21,51 +21,58 @@ class get_started:
 		self.install_pycharm()
 
     def update(self):
-        print("system updating ......")
+        print("System updating......")
         os.system("dnf update -yq")
-        print("system updated")
+        print("System updated successfully")
 
     def set_hostname(self):
-        print("Setting up Hostname \ncurrent host name is : ")
+        print("Setting up Hostname \nThe current host name is : ")
         os.system("hostname")
-        print()
-        if (input("want to change hostname [y/n]: ") == 'y' ):
-            os.system("systemctl set-hostname \""+str(input("enter hostname: "))+"\"")
+        if (input("Do you want to change the current hostname? [y/n]: ") == 'y' ):
+            os.system("systemctl set-hostname \""+str(input("Enter hostname: "))+"\"")
+            print("Your hostname is now changed to: ")
+            os.system("hostname")
 
     def add_tweak(self):
-        print("Installing Gnome-tweak tool ......")
+        print("Installing Gnome-tweak tool......")
         os.system("dnf install gnome-tweak-tool -y")
+        print("Gnome-tweak tool installation completed")
 
     def add_rpmfusion(self):
         print("Adding rpmFusion ......")
         os.system("rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-26.noarch.rpm")
+        print("rpmFusion is added")
 
     def install_chrome(self):
-        print("Installing google-chrome ......")
+        print("Installing Google-Chrome......")
         chrome_repo = open("/etc/dnf.repos.d/google-chrome.repo","w")
         content="[google-chrome] \nname=google-chrome - \$basearch \nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch \nenabled=1 \ngpgcheck=1 \ngpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub"
         chrome_repo.write(content)
-        print("Enable Google DNF repo")
+        print("Enabling Google DNF repo......")
         os.system("dnf install google-chrome-stable -y")
+        print("Google-Chrome installation completed")
 
     def install_java_plugins(self):
-        print("Installing java packages")
+        print("Installing java packages......")
         os.system("# dnf install java-openjdk icedtea-web -y")
+        print("Java installation completed")
 
     def install_spotify(self):
-        print("Installing Spotify ......")
+        print("Installing Spotify......")
         os.system("dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo")
         os.system("dnf install spotify-client -y")
+        print("Spotify installation completed")
 
     def add_powerline(self):
-        print("Adding powerLine to gnome-terminal ......")
+        print("Adding powerLine to gnome-terminal......")
         os.system("dnf install powerline powerline-fonts")
         content="\nif [ -f `which powerline-daemon` ]; then \n  powerline-daemon -q \n  POWERLINE_BASH_CONTINUATION=1 \n  POWERLINE_BASH_SELECT=1 \n   . /usr/share/powerline/bash/powerline.sh \n fi"
         file=open("/root/.bashrc","a")
         file.write(content)
+        print("Powerline is added")
 
     def add_vim_powerline(self):
-        print("Adding powerLine to vim ......")
+        print("Adding powerLine to Vim......")
         os.system("dnf install vim-powerline")
         content = ( "\npython3 from powerline.vim import setup as powerline_setup"
                     "\npython3 powerline_setup()"
@@ -79,10 +86,12 @@ class get_started:
         )
         with open("/root/.vimrc","a") as fobj:
             fobj.write(content)
+        print("Powerline is added to Vim")
 
     def install_docker(self):
-        print("Installing Docker ......")
+        print("Installing Docker......")
         os.system("rpm -ivh https://download.docker.com/linux/fedora/26/x86_64/stable/Packages/docker-ce-17.09.0.ce-1.fc26.x86_64.rpm")
+        print("Docker installation completed")
 
 	def install_pycharm(self):
         print("Installing PyCharm......")
