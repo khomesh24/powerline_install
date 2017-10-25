@@ -18,6 +18,7 @@ class get_started:
         self.add_powerline()
         self.add_vim_powerline()
         self.install_docker()
+		self.install_pycharm()
 
     def update(self):
         print("system updating ......")
@@ -82,6 +83,20 @@ class get_started:
     def install_docker(self):
         print("Installing Docker ......")
         os.system("rpm -ivh https://download.docker.com/linux/fedora/26/x86_64/stable/Packages/docker-ce-17.09.0.ce-1.fc26.x86_64.rpm")
+
+	def install_pycharm(self):
+        print("Installing PyCharm......")
+		os.system("""echo [phracek-PyCharm]
+name=Copr repo for PyCharm owned by phracek
+baseurl=https://copr-be.cloud.fedoraproject.org/results/phracek/PyCharm/fedora-$releasever-$basearch/
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/phracek/PyCharm/pubkey.gpg
+enabled=1
+enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
+		os.system("dnf copr enable phracek/PyCharm")
+		os.sytem("dnf install pycharm-community")
+		print("PyCharm installation completed")
 
 
 if __name__ == '__main__':
