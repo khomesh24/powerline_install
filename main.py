@@ -16,6 +16,7 @@ class get_started:
         self.install_java_plugins()
         self.install_spotify()
         self.add_powerline()
+        self.add_vim()
         self.add_vim_powerline()
         self.install_docker()
 		self.install_pycharm()
@@ -63,6 +64,10 @@ class get_started:
         content="\nif [ -f `which powerline-daemon` ]; then \n  powerline-daemon -q \n  POWERLINE_BASH_CONTINUATION=1 \n  POWERLINE_BASH_SELECT=1 \n   . /usr/share/powerline/bash/powerline.sh \n fi"
         file=open("/root/.bashrc","a")
         file.write(content)
+
+    def add_vim(self):
+        print("Adding vim ......")
+        os.system("dnf install -y vim-enhanced")
 
     def add_vim_powerline(self):
         print("Adding powerLine to vim ......")
