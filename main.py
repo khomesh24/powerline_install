@@ -16,6 +16,7 @@ class get_started:
         self.install_java_plugins()
         self.install_spotify()
         self.add_powerline()
+        self.add_vim()
         self.add_vim_powerline()
         self.install_docker()
 		self.install_pycharm()
@@ -70,6 +71,10 @@ class get_started:
         file=open("/root/.bashrc","a")
         file.write(content)
         print("Powerline is added")
+
+    def add_vim(self):
+        print("Adding vim ......")
+        os.system("dnf install -y vim-enhanced")
 
     def add_vim_powerline(self):
         print("Adding powerLine to Vim......")
