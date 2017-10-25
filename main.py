@@ -65,6 +65,8 @@ class get_started:
         file.write(content)
 
     def add_vim_powerline(self):
+        print("Installing vim")
+        os.system("dnf install vim -y")
         print("Adding powerLine to vim ......")
         os.system("dnf install vim-powerline")
         content = ( "\npython3 from powerline.vim import setup as powerline_setup"
