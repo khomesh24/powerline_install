@@ -19,7 +19,7 @@ class get_started:
         self.add_vim()
         self.add_vim_powerline()
         self.install_docker()
-	self.install_pycharm()
+        self.install_pycharm()
         self.install_openssh()
 
     def update(self):
@@ -99,9 +99,9 @@ class get_started:
         os.system("rpm -ivh https://download.docker.com/linux/fedora/26/x86_64/stable/Packages/docker-ce-17.09.0.ce-1.fc26.x86_64.rpm")
         print("Docker installation completed")
 
-	def install_pycharm(self):
+    def install_pycharm(self):
         print("Installing PyCharm......")
-		os.system("""echo [phracek-PyCharm]
+        os.system("""echo [phracek-PyCharm]
 name=Copr repo for PyCharm owned by phracek
 baseurl=https://copr-be.cloud.fedoraproject.org/results/phracek/PyCharm/fedora-$releasever-$basearch/
 skip_if_unavailable=True
@@ -109,9 +109,9 @@ gpgcheck=1
 gpgkey=https://copr-be.cloud.fedoraproject.org/results/phracek/PyCharm/pubkey.gpg
 enabled=1
 enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
-		os.system("dnf copr enable phracek/PyCharm")
-		os.sytem("dnf install pycharm-community")
-		print("PyCharm installation completed")
+        os.system("dnf copr enable phracek/PyCharm")
+        os.sytem("dnf install pycharm-community")
+        print("PyCharm installation completed")
 
     def install_openssh(self):
         print("Installing OpenSSH......")

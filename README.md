@@ -22,9 +22,11 @@ Execute only with root.
 * Rpm packages will be added to the fedora
 * Chrome, java_packages and spotify will be installed respectively
 * Then comes installation of powerline <br>
-  - It will give attractive look to your GNOME terminal 
+  - It will give attractive look to your GNOME terminal
 * VIM gets installed followed by powerline for VIM
 * Docker gets installed in your machine<br>
   - Docker is used widely today
 * Pycharm will be installed<br>
    - It will provide you ide for python programming
+* OpenSSH will be installed and enabled from boot time
+  - OpenSSH is a suite of security-related network-level utilities based on the Secure Shell protocol, 
