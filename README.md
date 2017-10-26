@@ -13,3 +13,18 @@ chmod +x main.py
 ./main.py
 ```
 Execute only with root.
+
+## Workflow
+* First and foremost it will update the Fedora 26
+* Then it will ask for hostname <br>
+  - You can set your hostname of desire
+* Now it will install "tweak tools"
+* Rpm packages will be added to the fedora
+* Chrome, java_packages and spotify will be installed respectively
+* Then comes installation of powerline <br>
+  - It will give attractive look to your GNOME terminal 
+* VIM gets installed followed by powerline for VIM
+* Docker gets installed in your machine<br>
+  - Docker is used widely today
+* Pycharm will be installed<br>
+   - It will provide you ide for python programming
