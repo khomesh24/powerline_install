@@ -19,7 +19,8 @@ class get_started:
         self.add_vim()
         self.add_vim_powerline()
         self.install_docker()
-		self.install_pycharm()
+	self.install_pycharm()
+        self.install_openssh()
 
     def update(self):
         print("System updating......")
@@ -111,6 +112,13 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
 		os.system("dnf copr enable phracek/PyCharm")
 		os.sytem("dnf install pycharm-community")
 		print("PyCharm installation completed")
+
+    def install_openssh(self):
+        print("Installing OpenSSH......")
+        os.system("dnf install -y openssh-server");
+        os.system("systemctl start sshd.service");
+        os.system("systemctl enable sshd.service");
+        print("OpenSSH installation completed");
 
 
 if __name__ == '__main__':
