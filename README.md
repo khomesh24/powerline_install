@@ -3,7 +3,7 @@
 
 # Only for Fedora 26
 
-Script to install basic tools after fresh installation of Fedora
+Script to install basic tools after fresh installation of Fedora to ease the installation.
 
 ## How to use
 
