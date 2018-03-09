@@ -134,6 +134,12 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
         os.system("dnf install atom")
         print("Atom installation completed")
+    
+    def install_cmake(self):
+        print("Installing cmake ...")
+        os.system("yum install cmake")
+        print("Cmake installation completed")
+       
 
 if __name__ == '__main__':
     get_started()
