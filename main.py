@@ -22,6 +22,7 @@ class get_started:
         self.install_pycharm()
         self.install_openssh()
         self.install_git()
+        self.install_atom()
 
     def update(self):
         print("System updating......")
@@ -125,7 +126,14 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         print("Installing git....")
         os.system("dnf -y install git")
         print("git installation completed")
-
+        
+       
+    def install_atom(self):
+        print("Installing Atom")
+        os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
+        os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
+        os.system("dnf install atom")
+        print("Atom installation completed")
 
 if __name__ == '__main__':
     get_started()
