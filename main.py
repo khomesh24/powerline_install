@@ -23,6 +23,7 @@ class get_started:
         self.install_openssh()
         self.install_git()
         self.install_atom()
+        self.install_cmake()
 
     def update(self):
         print("System updating......")
