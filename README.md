@@ -18,7 +18,7 @@ Execute only with root.
 * First and foremost it will update the Fedora 26
 * Then it will ask for hostname <br>
   - You can set your hostname of desire
-* Now it will install "tweak tools"
+* Now it will install **"tweak tools"**
 * Rpm packages will be added to the fedora
 * Chrome, java_packages and spotify will be installed respectively
 * Then comes installation of powerline <br>
