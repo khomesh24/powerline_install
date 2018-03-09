@@ -116,10 +116,10 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
 
     def install_openssh(self):
         print("Installing OpenSSH......")
-        os.system("dnf install -y openssh-server");
-        os.system("systemctl start sshd.service");
-        os.system("systemctl enable sshd.service");
-        print("OpenSSH installation completed");
+        os.system("dnf install -y openssh-server")
+        os.system("systemctl start sshd.service")
+        os.system("systemctl enable sshd.service")
+        print("OpenSSH installation completed")
        
     def install_git(self):
         print("Installing git....")
