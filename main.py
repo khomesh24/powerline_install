@@ -21,7 +21,6 @@ class get_started:
         self.install_docker()
         self.install_pycharm()
         self.install_openssh()
-        self.install_git()
         self.install_atom()
         self.install_cmake()
 
@@ -122,13 +121,7 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("systemctl start sshd.service")
         os.system("systemctl enable sshd.service")
         print("OpenSSH installation completed")
-       
-    def install_git(self):
-        print("Installing git....")
-        os.system("dnf -y install git")
-        print("git installation completed")
-        
-       
+            
     def install_atom(self):
         print("Installing Atom")
         os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
