@@ -113,7 +113,7 @@ gpgkey=https://copr-be.cloud.fedoraproject.org/results/phracek/PyCharm/pubkey.gp
 enabled=1
 enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("dnf copr enable phracek/PyCharm")
-        os.sytem("dnf install pycharm-community")
+        os.sytem("dnf -y install pycharm-community")
         print("PyCharm installation completed")
 
     def install_openssh(self):
@@ -133,12 +133,12 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         print("Installing Atom")
         os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
         os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
-        os.system("dnf install atom")
+        os.system("dnf -y install atom")
         print("Atom installation completed")
     
     def install_cmake(self):
         print("Installing cmake ...")
-        os.system("yum install cmake")
+        os.system("yum -y install cmake")
         print("Cmake installation completed")
        
 
