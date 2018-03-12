@@ -21,6 +21,8 @@ class get_started:
         self.install_docker()
         self.install_pycharm()
         self.install_openssh()
+        self.install_atom()
+        self.install_cmake()
 
     def update(self):
         print("System updating......")
@@ -110,16 +112,28 @@ gpgkey=https://copr-be.cloud.fedoraproject.org/results/phracek/PyCharm/pubkey.gp
 enabled=1
 enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("dnf copr enable phracek/PyCharm")
-        os.sytem("dnf install pycharm-community")
+        os.sytem("dnf -y install pycharm-community")
         print("PyCharm installation completed")
 
     def install_openssh(self):
         print("Installing OpenSSH......")
-        os.system("dnf install -y openssh-server");
-        os.system("systemctl start sshd.service");
-        os.system("systemctl enable sshd.service");
-        print("OpenSSH installation completed");
-
+        os.system("dnf install -y openssh-server")
+        os.system("systemctl start sshd.service")
+        os.system("systemctl enable sshd.service")
+        print("OpenSSH installation completed")
+            
+    def install_atom(self):
+        print("Installing Atom")
+        os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
+        os.system("rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey")
+        os.system("dnf -y install atom")
+        print("Atom installation completed")
+    
+    def install_cmake(self):
+        print("Installing cmake ...")
+        os.system("yum -y install cmake")
+        print("Cmake installation completed")
+       
 
 if __name__ == '__main__':
     get_started()
