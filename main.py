@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''This is to install basic software after fresh installation of fedora'''
-
+'''Maintainer: Khomesh Thakre'''
 
 import os
 
