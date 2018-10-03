@@ -23,7 +23,8 @@ class get_started:
         self.install_openssh()
         self.install_atom()
         self.install_cmake()
-
+        self.install_docker_ce()
+        
     def update(self):
         print("System updating......")
         os.system("dnf update -yq")
@@ -134,6 +135,13 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("yum -y install cmake")
         print("Cmake installation completed")
        
-
+    def install_docker_ce(self):
+        print("Installing Docker Community Edition...")
+        os.system("dnf -y install dnf-plugins-core")
+        os.system("dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo")
+        os.system("dnf install docker-ce")
+        os.system("systemctl start docker")
+        print("Docker-CE installation completed.")
+        
 if __name__ == '__main__':
     get_started()
