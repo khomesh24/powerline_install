@@ -14,6 +14,7 @@ class get_started:
         self.add_rpmfusion()
         self.install_chrome()
         self.install_java_plugins()
+	self.install_nodejs()
         self.install_spotify()
         self.add_powerline()
         self.add_vim_powerline()
@@ -98,6 +99,14 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
 		os.sytem("dnf install pycharm-community")
 		print("PyCharm installation completed")
 
+
+	def install_nodejs(self):
+		print("Installing nodejs")
+		os.system("sudo dnf install -y gcc-c++ make")
+		os.system("curl -sL https://rpm.nodesource.com/setup_8.x | sudo -E bash -")
+		os.system("sudo dnf install nodejs")
+		print("nodejs installed successfully.\n node version")
+		os.system("node -v")
 
 if __name__ == '__main__':
     get_started()
