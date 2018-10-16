@@ -14,6 +14,7 @@ class get_started:
         self.add_rpmfusion()
         self.install_chrome()
         self.install_java_plugins()
+	      self.install_nodejs()
         self.install_spotify()
         self.add_powerline()
         self.add_vim()
@@ -25,6 +26,7 @@ class get_started:
         self.install_cmake()
         self.install_docker_ce()
         
+
     def update(self):
         print("System updating......")
         os.system("dnf update -yq")
@@ -134,6 +136,14 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         print("Installing cmake ...")
         os.system("yum -y install cmake")
         print("Cmake installation completed")
+        
+    def install_vsCode(self):
+        print("Installing VS Code")
+        os.system("rpm --import https://packages.microsoft.com/keys/microsoft.asc")
+        os.system("""sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'""")
+        os.system("dnf check-update")
+        os.system("dnf install code")
+        print("VS Code installation completed")
        
     def install_docker_ce(self):
         print("Installing Docker Community Edition...")
@@ -143,5 +153,6 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("systemctl start docker")
         print("Docker-CE installation completed.")
         
+
 if __name__ == '__main__':
     get_started()
