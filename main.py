@@ -14,7 +14,7 @@ class get_started:
         self.add_rpmfusion()
         self.install_chrome()
         self.install_java_plugins()
-	self.install_nodejs()
+	      self.install_nodejs()
         self.install_spotify()
         self.add_powerline()
         self.add_vim()
@@ -24,7 +24,8 @@ class get_started:
         self.install_openssh()
         self.install_atom()
         self.install_cmake()
-        self.install_vsCode()
+        self.install_docker_ce()
+        
 
     def update(self):
         print("System updating......")
@@ -144,14 +145,14 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("dnf install code")
         print("VS Code installation completed")
        
-
-	def install_nodejs(self):
-		print("Installing nodejs")
-		os.system("sudo dnf install -y gcc-c++ make")
-		os.system("curl -sL https://rpm.nodesource.com/setup_8.x | sudo -E bash -")
-		os.system("sudo dnf install nodejs")
-		print("nodejs installed successfully.\n node version")
-		os.system("node -v")
+    def install_docker_ce(self):
+        print("Installing Docker Community Edition...")
+        os.system("dnf -y install dnf-plugins-core")
+        os.system("dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo")
+        os.system("dnf install docker-ce")
+        os.system("systemctl start docker")
+        print("Docker-CE installation completed.")
+        
 
 if __name__ == '__main__':
     get_started()
