@@ -14,7 +14,7 @@ class get_started:
         self.add_rpmfusion()
         self.install_chrome()
         self.install_java_plugins()
-	      self.install_nodejs()
+	    self.install_nodejs()
         self.install_spotify()
         self.add_powerline()
         self.add_vim()
@@ -25,6 +25,7 @@ class get_started:
         self.install_atom()
         self.install_cmake()
         self.install_docker_ce()
+        self.create_ssh_key()
         
 
     def update(self):
@@ -152,6 +153,11 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("dnf install docker-ce")
         os.system("systemctl start docker")
         print("Docker-CE installation completed.")
+
+    def create_ssh_key(self):
+    	print("Creating SSH key...")
+    	os.system('HOSTNAME=`hostname` ssh-keygen -t rsa -C "$HOSTNAME" -f "$HOME/.ssh/id_rsa" -P "" && cat ~/.ssh/id_rsa.pub')
+    	print("Creating SSH Key is completed.")
         
 
 if __name__ == '__main__':
