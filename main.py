@@ -27,6 +27,7 @@ class get_started:
         self.install_docker_ce()
         self.create_ssh_key()
         self.supplemental_fedora28_wallpapers()
+        self.fastboot()
         
 
     def update(self):
@@ -164,6 +165,11 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
     	print("Installing Fedora 28 Supplemental Wallpapers")
     	os.system("dnf install f28-backgrounds-extras-gnome")
     	print("Fedora 28 Supplemental Wallpapers installation completed.")
+
+    def fastboot(self):
+		print("Installing fastboot")
+    	os.system("dnf install fastboot")
+    	print("Fastboot installation completed.")    	
         
 
 if __name__ == '__main__':
