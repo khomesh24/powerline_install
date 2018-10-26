@@ -169,6 +169,11 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
     def fastboot(self):
 		print("Installing fastboot")
     	os.system("dnf install fastboot")
+    	print("Fastboot installation completed.")
+
+    def fastboot(self):
+		print("Installing fastboot")
+    	os.system("dnf install fastboot")
     	print("Fastboot installation completed.")    	
         
 
