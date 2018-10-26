@@ -26,6 +26,8 @@ class get_started:
         self.install_cmake()
         self.install_docker_ce()
         self.create_ssh_key()
+        self.supplemental_fedora28_wallpapers()
+        self.fastboot()
         
 
     def update(self):
@@ -158,6 +160,16 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
     	print("Creating SSH key...")
     	os.system('HOSTNAME=`hostname` ssh-keygen -t rsa -C "$HOSTNAME" -f "$HOME/.ssh/id_rsa" -P "" && cat ~/.ssh/id_rsa.pub')
     	print("Creating SSH Key is completed.")
+
+    def supplemental_fedora28_wallpapers(self):
+    	print("Installing Fedora 28 Supplemental Wallpapers")
+    	os.system("dnf install f28-backgrounds-extras-gnome")
+    	print("Fedora 28 Supplemental Wallpapers installation completed.")
+
+    def fastboot(self):
+		print("Installing fastboot")
+    	os.system("dnf install fastboot")
+    	print("Fastboot installation completed.")    	
         
 
 if __name__ == '__main__':
