@@ -28,6 +28,7 @@ class get_started:
         self.create_ssh_key()
         self.supplemental_fedora28_wallpapers()
         self.fastboot()
+        self.opencv()
         
 
     def update(self):
@@ -171,6 +172,12 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
     	os.system("dnf install fastboot")
     	print("Fastboot installation completed.")    	
         
+    #machine Learning/ Image processing essentials 
 
+    def opencv(self):
+        print("installing opencv")
+        os.system("pip install opencv-python.")
+        print("opencv installation completed.")
+        
 if __name__ == '__main__':
     get_started()
