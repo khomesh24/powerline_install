@@ -7,6 +7,14 @@ import os
 
 class get_started:
     def __init__(self):
+
+        #choice module (TO-DO)
+        # print("Hello choose from the following utilits to install ")
+        # utilites_list = []
+
+
+
+        print()
         print("Hold tight, it may take some time!")
         self.update()
         self.set_hostname()
@@ -29,6 +37,8 @@ class get_started:
         self.supplemental_fedora28_wallpapers()
         self.fastboot()
         self.opencv()
+        self.imutils()
+        self.tensorflow()
         
 
     def update(self):
@@ -92,13 +102,20 @@ class get_started:
         content = ( "\npython3 from powerline.vim import setup as powerline_setup"
                     "\npython3 powerline_setup()"
                     "\npython3 del powerline_setup"
-                    '\nset laststatus=2 " Always display the statusline in all windows'
-                    '\nset showtabline=2 " Always display the tabline, even if there is only one tab'
-                    '\nset noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)'
-                    '\nset t_Co=256'
-                    '\nset number'
-                    '\nset mouse=a'
-        )
+                 # print("Hello choose from the following utilits to install ")
+        # utilites_list = []2 " Always display the statusline in all windows'
+                 # print("Hello choose from the following utilits to install ")
+        # utilites_list = []=2 " Always display the tabline, even if there is only one tab'
+                 # print("Hello choose from the following utilits to install ")
+        # utilites_list = []" Hide the default mode text (e.g. -- INSERT -- below the statusline)'
+                 # print("Hello choose from the following utilits to install ")
+        # utilites_list = []
+                 # print("Hello choose from the following utilits to install ")
+        # utilites_list = []
+                 # print("Hello choose from the following utilits to install ")
+        # utilites_list = []
+        )        # print("Hello choose from the following utilits to install ")
+        # utilites_list = []
         with open("/root/.vimrc","a") as fobj:
             fobj.write(content)
         print("Powerline is added to Vim")
@@ -155,22 +172,22 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         os.system("dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo")
         os.system("dnf install docker-ce")
         os.system("systemctl start docker")
-        print("Docker-CE installation completed.")
+        print("Docker-CE installation completedmoduls
 
     def create_ssh_key(self):
     	print("Creating SSH key...")
-    	os.system('HOSTNAME=`hostname` ssh-keygen -t rsa -C "$HOSTNAME" -f "$HOME/.ssh/id_rsa" -P "" && cat ~/.ssh/id_rsa.pub')
-    	print("Creating SSH Key is completed.")
+    	os.system('HOSTNAME=`hostname` ssh-keygmodulsNAME" -f "$HOME/.ssh/id_rsa" -P "" && cat ~/.ssh/id_rsa.pub')
+    	print("Creating SSH Key is completed.")moduls
 
     def supplemental_fedora28_wallpapers(self):
     	print("Installing Fedora 28 Supplemental Wallpapers")
     	os.system("dnf install f28-backgrounds-extras-gnome")
     	print("Fedora 28 Supplemental Wallpapers installation completed.")
 
-    def fastboot(self):
-		print("Installing fastboot")
-    	os.system("dnf install fastboot")
-    	print("Fastboot installation completed.")    	
+    def fastboot(self):moduls
+		print("Installing fastboot"moduls)
+    	os.system("dnf install fastmodulsboot")
+    	print("Fastboot installatiomodulsn completed.")    	
         
     #machine Learning/ Image processing essentials 
 
@@ -178,6 +195,16 @@ enabled_metadata=1 > /etc/yum.repos.d/pycharm.repo""")
         print("installing opencv")
         os.system("pip install opencv-python.")
         print("opencv installation completed.")
-        
+
+    def imutils(self):
+        print("installing imutils")
+        os.system("pip install imutils.")
+        print("imutils installation completed.")
+
+    def tensorflow(self):
+        print("installing tensorflow")
+        os.system("pip install tensorflow.")
+        print("tensorflow installation completed.")
+
 if __name__ == '__main__':
     get_started()
